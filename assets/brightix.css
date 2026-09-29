@@ -1,0 +1,140 @@
+/* Brightix — shared theme, 3D + motion layer */
+:root{
+  --bx-bg:#070a1c;
+  --bx-bg-2:#0d1233;
+  --bx-line:rgba(255,255,255,.08);
+  --bx-text:#f2f4ff;
+  --bx-muted:#a6abcf;
+  --bx-accent:#a78bfa;
+  --bx-accent-2:#3b6dff;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bx-bg);
+  color:var(--bx-text);
+  font-family:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.bx-display{font-family:"Space Grotesk","Inter",sans-serif;letter-spacing:-.02em}
+
+/* ---------- ambient background ---------- */
+.bx-grid{
+  position:fixed;inset:0;z-index:-2;
+  background-image:linear-gradient(var(--bx-line) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--bx-line) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 75%);
+  animation:bx-grid-drift 24s linear infinite;
+}
+@keyframes bx-grid-drift{to{background-position:64px 64px,64px 64px}}
+.bx-glow{
+  position:fixed;z-index:-1;border-radius:9999px;filter:blur(140px);opacity:.20;
+  animation:bx-float 14s ease-in-out infinite;
+}
+@keyframes bx-float{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-40px,0)}}
+
+/* ---------- 3D primitives ---------- */
+.bx-scene{perspective:1200px;perspective-origin:50% 50%}
+.bx-3d{transform-style:preserve-3d}
+
+/* rotating wireframe cube (hero) */
+.bx-cube{position:relative;width:200px;height:200px;transform-style:preserve-3d;animation:bx-spin 18s linear infinite}
+@keyframes bx-spin{
+  from{transform:rotateX(-22deg) rotateY(0deg)}
+  to{transform:rotateX(-22deg) rotateY(360deg)}
+}
+.bx-face{
+  position:absolute;inset:0;border:1px solid rgba(167,139,250,.45);
+  background:linear-gradient(135deg,rgba(167,139,250,.10),rgba(59,109,255,.10));
+  box-shadow:0 0 40px rgba(167,139,250,.18) inset;
+  backdrop-filter:blur(2px);
+}
+.bx-face.f1{transform:translateZ(100px)}
+.bx-face.f2{transform:rotateY(180deg) translateZ(100px)}
+.bx-face.f3{transform:rotateY(90deg)  translateZ(100px)}
+.bx-face.f4{transform:rotateY(-90deg) translateZ(100px)}
+.bx-face.f5{transform:rotateX(90deg)  translateZ(100px)}
+.bx-face.f6{transform:rotateX(-90deg) translateZ(100px)}
+
+.bx-ring{
+  position:absolute;border:1px solid rgba(59,109,255,.35);border-radius:9999px;
+  transform-style:preserve-3d;animation:bx-ring-spin 22s linear infinite;
+}
+@keyframes bx-ring-spin{
+  from{transform:rotateX(74deg) rotateZ(0deg)}
+  to{transform:rotateX(74deg) rotateZ(360deg)}
+}
+
+/* tilt-on-hover cards */
+.bx-tilt{transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s,border-color .5s;transform-style:preserve-3d}
+.bx-tilt:hover{
+  transform:translateY(-8px) rotateX(6deg) rotateY(-6deg) scale(1.02);
+  box-shadow:0 30px 70px -30px rgba(167,139,250,.45);
+  border-color:rgba(167,139,250,.45);
+}
+.bx-tilt > *{transform:translateZ(30px)}
+
+/* ---------- scroll reveal ---------- */
+.bx-reveal{opacity:0;transform:translateY(28px) rotateX(8deg);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.bx-reveal.is-in{opacity:1;transform:none}
+
+/* ---------- misc ---------- */
+.bx-card{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid var(--bx-line);border-radius:18px}
+.bx-gradtext{background:linear-gradient(100deg,#fff 10%,var(--bx-accent) 55%,var(--bx-accent-2) 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bx-marquee{animation:bx-slide 26s linear infinite}
+@keyframes bx-slide{to{transform:translateX(-50%)}}
+.bx-pulse-dot{box-shadow:0 0 0 0 rgba(167,139,250,.6);animation:bx-pulse 2.4s infinite}
+@keyframes bx-pulse{70%{box-shadow:0 0 0 14px rgba(167,139,250,0)}100%{box-shadow:0 0 0 0 rgba(167,139,250,0)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .bx-reveal{opacity:1;transform:none}
+}
+
+/* navbar */
+.bx-nav{transition:background .4s,border-color .4s,backdrop-filter .4s}
+.bx-nav-solid{background:rgba(7,10,28,.72);backdrop-filter:blur(14px);border-color:var(--bx-line)!important}
+
+/* dropdown panel needs an opaque surface over the 3D hero */
+.bx-menu{background:rgba(13,18,51,.97)!important;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
+
+/* ================= page transition (load / reload / internal nav) ================= */
+.bx-curtain{
+  position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background:linear-gradient(140deg,#070a1c 0%,#160f3d 45%,#0d1233 100%);
+  display:flex;align-items:center;justify-content:center;
+  transform:translateY(0);
+  transition:transform .85s cubic-bezier(.76,0,.24,1),opacity .5s ease .35s;
+}
+.bx-curtain::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 50% at 50% 50%,rgba(167,139,250,.22),transparent 70%);
+}
+.bx-curtain .bx-curtain-mark{
+  position:relative;z-index:1;font-family:"Space Grotesk",sans-serif;font-weight:700;
+  letter-spacing:.35em;font-size:.8rem;color:#f2f4ff;opacity:.9;
+  display:flex;align-items:center;gap:.7rem;
+}
+.bx-curtain .bx-curtain-mark span{
+  height:7px;width:7px;border-radius:9999px;background:#a78bfa;
+  animation:bx-blink 1.1s ease-in-out infinite;
+}
+@keyframes bx-blink{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+
+/* leaving: curtain drops in from the top */
+.bx-curtain.is-leaving{transform:translateY(0);opacity:1;transition:transform .55s cubic-bezier(.76,0,.24,1)}
+/* arriving: curtain lifts out of the way */
+.bx-curtain.is-open{transform:translateY(-102%);opacity:0}
+.bx-curtain.is-hidden{display:none}
+
+/* content intro on every load */
+.bx-page-in{animation:bx-page-in 1s cubic-bezier(.16,1,.3,1) both .15s}
+@keyframes bx-page-in{
+  from{opacity:0;transform:translateY(26px) scale(.985)}
+  to{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .bx-curtain{display:none!important}
+  .bx-page-in{animation:none}
+}

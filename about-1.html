@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brightix — Who We Are</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/brightix.css" />
+<script src="assets/transition.js"></script>
+</head>
+<body class="antialiased">
+
+<div class="bx-grid"></div>
+<div class="bx-glow" style="width:620px;height:620px;top:-180px;left:-140px;background:#a78bfa"></div>
+<div class="bx-glow" style="width:520px;height:520px;top:120px;right:-160px;background:#3b6dff;animation-delay:-6s"></div>
+
+<!-- ================= NAVBAR ================= -->
+<header data-bx-nav class="bx-nav fixed top-0 inset-x-0 z-50 border-b border-transparent">
+  <nav class="mx-auto max-w-7xl px-6 h-[72px] flex items-center justify-between">
+    <a href="index.html" class="bx-display text-lg font-bold tracking-tight flex items-center gap-2">
+      <span class="h-2.5 w-2.5 rounded-full bg-[#a78bfa] bx-pulse-dot"></span>BRIGHTIX
+    </a>
+
+    <ul class="hidden md:flex items-center gap-1 text-sm text-[#a6abcf]">
+      <li><a href="index.html" class="px-4 py-2 rounded-lg hover:text-white hover:bg-white/5 transition">Home</a></li>
+      <li class="relative">
+        <button data-bx-dropdown-trigger aria-expanded="false"
+          class="px-4 py-2 rounded-lg text-white bg-white/5 hover:bg-white/10 transition flex items-center gap-1.5">
+          About Us
+          <svg class="h-3.5 w-3.5" viewBox="0 0 12 12" fill="none"><path d="M3 4.5 6 7.5 9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div data-bx-dropdown-menu
+          class="opacity-0 invisible translate-y-2 transition-all duration-300 absolute left-0 top-full mt-3 w-72 bx-card bx-menu p-2 backdrop-blur-xl">
+          <a href="about-1.html" class="block px-4 py-3 rounded-xl hover:bg-white/5 transition">
+            <span class="text-white text-sm font-medium">Who We Are</span>
+            <span class="block text-xs text-[#a6abcf] mt-0.5">Page 1 — introduction &amp; beliefs</span>
+          </a>
+          <a href="about-2.html" class="block px-4 py-3 rounded-xl hover:bg-white/5 transition">
+            <span class="text-white text-sm font-medium">Why Brightix / Our Approach</span>
+            <span class="block text-xs text-[#a6abcf] mt-0.5">Page 2 — problem, method, impact</span>
+          </a>
+          <a href="about-3.html" class="block px-4 py-3 rounded-xl hover:bg-white/5 transition">
+            <span class="text-white text-sm font-medium">Our Team</span>
+            <span class="block text-xs text-[#a6abcf] mt-0.5">Page 3 — the people behind Brightix</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="#" data-bx-soon="Services" class="px-4 py-2 rounded-lg hover:text-white hover:bg-white/5 transition">Services</a></li>
+      <li><a href="#" data-bx-soon="IT Solutions" class="px-4 py-2 rounded-lg hover:text-white hover:bg-white/5 transition">IT Solutions</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a href="#" data-bx-soon="Book a Demo"
+        class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-[#a78bfa] px-5 py-2.5 text-sm font-semibold text-[#070a1c] hover:bg-white transition">
+        Book a Demo
+      </a>
+      <button data-bx-burger class="md:hidden rounded-lg border border-white/10 p-2">
+        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div data-bx-mobile class="hidden md:hidden border-t border-white/10 bg-[#070a1c]/95 backdrop-blur-xl px-6 py-4 space-y-1 text-sm">
+    <a href="index.html" class="block py-2 text-white">Home</a>
+    <a href="about-1.html" class="block py-2 text-white">About — Who We Are</a>
+    <a href="about-2.html" class="block py-2 text-[#a6abcf]">About — Our Approach</a>
+    <a href="about-3.html" class="block py-2 text-[#a6abcf]">About — Our Team</a>
+    <a href="#" data-bx-soon="Services" class="block py-2 text-[#a6abcf]">Services</a>
+    <a href="#" data-bx-soon="IT Solutions" class="block py-2 text-[#a6abcf]">IT Solutions</a>
+    <a href="#" data-bx-soon="Book a Demo" class="block py-2 text-[#a78bfa]">Book a Demo</a>
+  </div>
+</header>
+
+<main class="pt-[72px]">
+<!-- PAGE HERO -->
+<section class="mx-auto max-w-7xl px-6 pt-24 pb-16 grid lg:grid-cols-12 gap-14 items-end">
+  <div class="lg:col-span-7 bx-reveal">
+    <p class="text-xs tracking-[0.25em] text-[#a78bfa]">ABOUT US — 01</p>
+    <h1 class="bx-display mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05]">
+      Who we <span class="bx-gradtext">are.</span>
+    </h1>
+    <p class="mt-7 max-w-xl text-lg text-[#a6abcf] leading-relaxed">
+      Brightix is a cybersecurity education and technology company. We exist because secure
+      systems are built by well-trained people — and both have to be developed together.
+    </p>
+  </div>
+  <div class="lg:col-span-5 bx-reveal">
+    <div class="bx-scene flex justify-center lg:justify-end">
+      <div data-bx-parallax class="bx-3d transition-transform duration-300 ease-out relative" style="width:240px;height:240px">
+        <div class="bx-ring" style="width:240px;height:240px"></div>
+        <div class="bx-cube" style="width:150px;height:150px;left:45px;top:45px;position:absolute;animation-duration:24s">
+          <div class="bx-face f1" style="transform:translateZ(75px)"></div>
+          <div class="bx-face f2" style="transform:rotateY(180deg) translateZ(75px)"></div>
+          <div class="bx-face f3" style="transform:rotateY(90deg) translateZ(75px)"></div>
+          <div class="bx-face f4" style="transform:rotateY(-90deg) translateZ(75px)"></div>
+          <div class="bx-face f5" style="transform:rotateX(90deg) translateZ(75px)"></div>
+          <div class="bx-face f6" style="transform:rotateX(-90deg) translateZ(75px)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="border-y border-white/10 bg-[#0d1233]/40">
+  <div class="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-12 gap-14">
+    <div class="lg:col-span-5 bx-reveal">
+      <h2 class="bx-display text-2xl font-semibold">A short introduction</h2>
+    </div>
+    <div class="lg:col-span-7 space-y-6 text-[#a6abcf] leading-relaxed bx-reveal">
+      <p>
+        Brightix started with a simple observation: organisations were buying more security
+        tooling every year, while the people expected to operate it were learning on the job,
+        under pressure, without structure.
+      </p>
+      <p>
+        So we built a practice that does both halves. On one side, hands-on training programmes
+        that take learners from fundamentals to real incident work in controlled labs. On the
+        other, an engineering team that designs, hardens and maintains the systems our partners
+        depend on.
+      </p>
+      <p class="text-[#f2f4ff]">
+        Education informs the engineering. The engineering keeps the education honest.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- BELIEFS -->
+<section class="mx-auto max-w-7xl px-6 py-24">
+  <h2 class="bx-display text-3xl font-bold bx-reveal">What we believe</h2>
+  <div class="bx-scene mt-12 grid md:grid-cols-3 gap-6">
+    <article class="bx-card bx-tilt bx-reveal p-8">
+      <p class="bx-display text-sm text-[#a78bfa]">01</p>
+      <h3 class="bx-display mt-3 text-lg font-semibold">Security is a skill, not a product</h3>
+      <p class="mt-3 text-sm text-[#a6abcf] leading-relaxed">Tools do not defend organisations. Trained people using them well do.</p>
+    </article>
+    <article class="bx-card bx-tilt bx-reveal p-8">
+      <p class="bx-display text-sm text-[#a78bfa]">02</p>
+      <h3 class="bx-display mt-3 text-lg font-semibold">Learning must be hands-on</h3>
+      <p class="mt-3 text-sm text-[#a6abcf] leading-relaxed">Every programme ends in a lab, not a slide. Competence is demonstrated, not claimed.</p>
+    </article>
+    <article class="bx-card bx-tilt bx-reveal p-8">
+      <p class="bx-display text-sm text-[#a78bfa]">03</p>
+      <h3 class="bx-display mt-3 text-lg font-semibold">Access should be wide</h3>
+      <p class="mt-3 text-sm text-[#a6abcf] leading-relaxed">Talent is evenly distributed; opportunity is not. We build for both campuses and enterprises.</p>
+    </article>
+  </div>
+
+  <div class="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 border-t border-white/10 pt-12 bx-reveal">
+    <div><p class="bx-display text-4xl font-bold"><span data-bx-count="2019">0</span></p><p class="mt-2 text-xs text-[#a6abcf]">Founded</p></div>
+    <div><p class="bx-display text-4xl font-bold"><span data-bx-count="8500">0</span>+</p><p class="mt-2 text-xs text-[#a6abcf]">Learners trained</p></div>
+    <div><p class="bx-display text-4xl font-bold"><span data-bx-count="40">0</span>+</p><p class="mt-2 text-xs text-[#a6abcf]">Partner organisations</p></div>
+    <div><p class="bx-display text-4xl font-bold"><span data-bx-count="12">0</span></p><p class="mt-2 text-xs text-[#a6abcf]">Countries reached</p></div>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section class="mx-auto max-w-7xl px-6 pb-28 bx-reveal">
+  <a href="about-2.html" class="group bx-card block p-10 hover:border-[#a78bfa]/40 transition">
+    <p class="text-xs tracking-[0.2em] text-[#a6abcf]">NEXT — 02</p>
+    <div class="mt-3 flex items-center justify-between gap-6">
+      <h3 class="bx-display text-2xl sm:text-3xl font-bold">Why Brightix / Our Approach</h3>
+      <svg class="h-7 w-7 shrink-0 text-[#a78bfa] transition-transform group-hover:translate-x-2" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </a>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="border-t border-white/10">
+  <div class="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-3">
+    <div>
+      <p class="bx-display font-bold">BRIGHTIX</p>
+      <p class="mt-3 text-sm text-[#a6abcf] max-w-xs">Cybersecurity education and secure technology, in one practice.</p>
+    </div>
+    <div class="text-sm">
+      <p class="text-white font-medium">About</p>
+      <ul class="mt-3 space-y-2 text-[#a6abcf]">
+        <li><a href="about-1.html" class="hover:text-white transition">Who We Are</a></li>
+        <li><a href="about-2.html" class="hover:text-white transition">Our Approach</a></li>
+        <li><a href="about-3.html" class="hover:text-white transition">Our Team</a></li>
+      </ul>
+    </div>
+    <div class="text-sm">
+      <p class="text-white font-medium">Coming in later phases</p>
+      <ul class="mt-3 space-y-2 text-[#a6abcf]">
+        <li>Services</li><li>IT Solutions</li><li>Booking &amp; dashboards</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-6 text-center text-xs text-[#a6abcf]">© 2026 Brightix — prototype</div>
+</footer>
+
+<div data-bx-toast class="pointer-events-none fixed bottom-8 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 transition-all duration-300 rounded-xl border border-white/10 bg-[#0d1233]/95 px-5 py-3 text-sm text-[#f2f4ff] backdrop-blur-xl z-[60]"></div>
+
+<div data-bx-toast class="pointer-events-none fixed bottom-8 left-1/2 -translate-x-1/2 translate-y-4 opacity-0 transition-all duration-300 rounded-xl border border-white/10 bg-[#0d1233]/95 px-5 py-3 text-sm text-[#f2f4ff] backdrop-blur-xl z-[60]"></div>
+
+<script src="assets/brightix.js"></script>
+</body>
+</html>
